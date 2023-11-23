@@ -1,5 +1,5 @@
-# SecProject
-Cybersecurity Project
-## Current thought 
-- Password manager with password strength analyzer
-- Encryption Software with compression
+# Secure Storage
+A tool that encrypts files before storing them.
+
+Flutter as the frontend.
+* Encrypt the data on the client side
