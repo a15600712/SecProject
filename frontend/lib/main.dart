@@ -1,5 +1,8 @@
+// ignore_for_file: unnecessary_null_comparison
+
 import 'dart:async';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -28,11 +31,17 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Future<void> _selectFile() async {
-    final fileData = await FilePicker.platform.pickFiles(
-      allowMultiple: false,
-      type: FileType.any,
-    );
-    print(fileData);
+    // pick a file from local
+    final resule = await FilePicker.platform.pickFiles();
+    if (resule == null) return;
+    final file = File(resule.files.first.path!);
+
+    // get bytes data of the file
+    final resultBytes = await file.readAsBytes();
+
+    // encrypt the bytes data
+    // encrypt a file -> write the encrypted bytes to a file
+    // store the encrypted file to the cloud
   }
 
   @override
